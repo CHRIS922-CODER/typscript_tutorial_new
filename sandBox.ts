@@ -1,7 +1,16 @@
-const character = 'legui'
-console.log(character);
-const inputs =  document.querySelectorAll('input');
+let character = 'christopher'
+let age = 32;
+let isBlackBelt = false;
 
-console.log(inputs);
+// character = 34
+character = "chirspers";
+// age = 'knelt'
+age = 45;
+// isBlackBelt = 'true'
+isBlackBelt = true;
 
-inputs.forEach(input=> console.log(input));
+const circ = (diameter:number)=>{
+    return diameter * Math.PI;
+}
+
+console.log(circ(7.5));
