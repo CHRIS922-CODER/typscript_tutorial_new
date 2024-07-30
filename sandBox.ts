@@ -1,48 +1,22 @@
-// explicit types
-let character: string;
-let age: number;
-let isLoggedIn: boolean;
-age = 45;
-// age = 'luigi';
-isLoggedIn = true;
-// isLoggedIn = 23;
+// Dyanmic type any
 
-// arrays
-let ninjas: string[];
-ninjas = ['roy','john']
-ninjas.push('john');
+let age: any = 34;
+age = 'chris';
+age = { name:'luigi'}
 
-//  union types
-let mixed: (string|number)[]=[]
-mixed.push(3)
-mixed.push('roy')
-// mixed.push(false)
-let uuid: string|number;
-uuid ='123';
-uuid = 123
-// uuid = true
+let mixed: any[] = [];
+mixed.push(5);
+mixed.push('luigi');
+mixed.push(false)
 
-//  objects
-let ninjaOne: object;
-ninjaOne = {name:"chris", age:56, beltColor:'orange'}
+console.log(mixed)
 
-ninjaOne = [];
-
-let ninjaTwo: {
-    name:string,
-    age:number,
-    blackbelt:string
+let ninja: { name:any, age:any}
+ninja ={
+    name:'yoshi',age:45
 }
+console.log(ninja)
 
-ninjaTwo = {
-    name:"chris",
-    age:33,
-    blackbelt:"black"
+ninja ={
+    name:false,age:'yoshi'
 }
-
-// ninjaTwo = {
-//     name:"yoshi",
-//     age:12,
-//     blackbelt:'green',
-//     skills:[]
-// }
