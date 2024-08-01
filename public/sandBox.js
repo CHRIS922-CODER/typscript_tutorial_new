@@ -1,22 +1,23 @@
 "use strict";
-// let greet = ()=>{
-//     console.log('hello')
-// }
-// greet = 'hello'
-let greet;
-greet = () => {
-    console.log('hello again');
-};
-// const add = (a:number, b:number, c?:number | string )=>{
-//     return console.log(a + b);    
-// }
-const add = (a, b, c = 12) => {
-    console.log(a + b);
-    console.log(c);
-};
-add(5, 2, 12);
-const minus = (a, b) => {
-    return a + b;
-};
-let result = minus(23, 45);
-// result = ''
+// Classes
+class Invoice {
+    constructor(c, d, a) {
+        this.client = c,
+            this.details = d,
+            this.amount = a;
+    }
+    format() {
+        return `${this.client} owes ${this.amount} for ${this.details} `;
+    }
+}
+const invOne = new Invoice('chris', 'system update', 456666);
+const invTwo = new Invoice('youngkim', 'Error and testing', 45226);
+// console.log(invOne.format(),invTwo);
+// let invoices: string[]= [];
+let invoices = [];
+// invoices.push({name:"john"})
+invoices.push(invOne);
+invoices.push(invTwo);
+console.log(invoices);
+invOne.client = 'yoshi';
+invTwo.amount = 234;

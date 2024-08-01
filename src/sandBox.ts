@@ -1,27 +1,42 @@
+// Classes
 
-    // let greet : Function;
+class Invoice{
+    client:string
+    details:string
+    amount:number
 
-    let greet: (a:string, b:string) => void;
+    constructor(c:string,d:string,a:number){
+    this.client = c,
+    this.details = d,
+    this.amount =a
+    }
 
-    greet = (name:string,greeting:string)=>{
-        console.log(`${name} ${greeting}`);
+    format(){
+        return `${this.client} owes ${this.amount} for ${this.details} `
+    }
+
+}
+
+
+const invOne = new Invoice('chris','system update',456666)
+const invTwo = new Invoice('youngkim','Error and testing',45226)
+
+// console.log(invOne.format(),invTwo);
+
+// let invoices: string[]= [];
+
+let invoices: Invoice[] = []
+// invoices.push({name:"john"})
+invoices.push(invOne)
+invoices.push(invTwo)
+
+console.log(invoices);
+
+invOne.client = 'yoshi'
+invTwo.amount = 234
+
+
+
+
         
-    }
-
-    let calc: (a:number,b:number,c:string)=> number;
-
-    calc = (numOne:number,numTwo:number,action:string): number =>{
-        if(action == 'add'){
-            return numOne + numTwo;
-        }else{
-            return numOne - numTwo;
-        }
-    }
-
-
-    let logDetails: (obj:{name:string, age:number})=> void;
-    type person ={name:string,age:number}
-    logDetails = (ninja:person)=>{
-        console.log(`${ninja.name} us ${ninja.age} years old`);
-        
-    }
+    
