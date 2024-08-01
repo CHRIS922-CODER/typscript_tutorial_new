@@ -1,10 +1,13 @@
 "use strict";
 // Classes
 class Invoice {
-    constructor(c, d, a) {
-        this.client = c,
-            this.details = d,
-            this.amount = a;
+    // readonly client:string
+    // private details:string
+    // public amount:number
+    constructor(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     format() {
         return `${this.client} owes ${this.amount} for ${this.details} `;
@@ -19,5 +22,7 @@ let invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 console.log(invoices);
-invOne.client = 'yoshi';
-invTwo.amount = 234;
+// invOne.client = 'something else'
+invoices.forEach((inv) => {
+    console.log(inv.client, inv.amount, inv.format());
+});
