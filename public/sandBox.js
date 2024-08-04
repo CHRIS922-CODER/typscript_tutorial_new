@@ -20,3 +20,38 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+// GENERICS
+// Generics allow us to create reusable  block of codes which can be used with different types
+// const addUUID = <T>(obj:T)=>{
+//   const uuid = Math.floor(Math.random() * 100);
+//   return {...obj,uuid}
+// }
+// const docOne = addUUID({name:'yoshi',age:46});
+// console.log(docOne.name);
+// const addUUID = <T extends object>(obj: T) => {
+//   const uuid = Math.floor(Math.random() * 100);
+//   return { ...obj, uuid };
+// };
+// const docOne = addUUID({ name: "yoshi", age: 46 });
+const addUUID = (obj) => {
+    const uuid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uuid });
+};
+const docOne = addUUID({ name: "yoshi", age: 23 });
+console.log(docOne.uuid);
+const docThree = {
+    uid: 2,
+    resourceName: "/public/classes",
+    data: "",
+};
+const docFour = {
+    uid: 2,
+    resourceName: "/public/classes",
+    data: { name: "shown" },
+};
+const docFive = {
+    uid: 2,
+    resourceName: "shopping list",
+    data: ["milk", "bread"],
+};
+console.log(docThree, docFour, docFive);
