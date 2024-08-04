@@ -11,12 +11,17 @@ const ul = document.querySelector("ul");
 const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    let values = [
+        tofrom.value,
+        details.value,
+        amount.valueAsNumber,
+    ];
     let doc;
     if (type.value === "invoice") {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     list.render(doc, type.value, "end");
 });
@@ -59,11 +64,18 @@ var ResourceType;
 const docTwo = {
     uuid: 1,
     resourceType: ResourceType.BOOK,
-    data: { title: 'name of the wind' }
+    data: { title: "name of the wind" },
 };
 const docThree = {
     uuid: 10,
     resourceType: ResourceType.PERSON,
-    data: { name: 'yoshi' }
+    data: { name: "yoshi" },
 };
 console.log(docTwo, docThree);
+// TUPLES
+const tup = ["james", 34, false];
+tup[1] = 12;
+console.log(tup);
+// let student:[string,number];
+// student = ['james',345667]
+// student = [23445,'yoshi']
