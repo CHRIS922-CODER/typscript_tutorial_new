@@ -267,5 +267,3 @@ person = ["Alice", 30];
 console.log(person[0]); // Alice
 console.log(person[1]); // 30
 ```
-
-You can format these notes and code templates in your `README.md` for easy reference.
