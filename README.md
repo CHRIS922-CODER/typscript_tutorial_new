@@ -1,5 +1,4 @@
 ![Screenshot from 2024-08-04 11-29-43](https://github.com/user-attachments/assets/f7091d1f-6ab8-4fce-a79f-5ce346bb0cdd)
-Here's a comprehensive set of notes and code templates for the requested TypeScript topics. You can include these in your `README.md` file for reference:
 
 ### TypeScript Introduction & Setup
 
