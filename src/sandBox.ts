@@ -16,11 +16,18 @@ const list = new ListTemplate(ul);
 
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
+
+  let values: [string, string, number] = [
+    tofrom.value,
+    details.value,
+    amount.valueAsNumber,
+  ];
+
   let doc: HasFormatter;
   if (type.value === "invoice") {
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment(...values);
   }
   list.render(doc, type.value, "end");
 });
@@ -52,9 +59,7 @@ console.log(docOne.uuid);
 
 // const docOne = addUUID({ name: 23, age: 46 });
 
-
 // With Interfaces
-
 
 // interface Resource {
 //   uid:number,
@@ -65,26 +70,40 @@ console.log(docOne.uuid);
 // ENUMS
 // Enums are special types in typescript that allows us to store set of constants or keyworkds and associate them with numeric valuep
 
-
-enum ResourceType {BOOK,AUTHOR,FILM,DIRECTOR,PERSON}
-interface Resource<T>{
-  uuid:number,
-  resourceType:ResourceType,
-  data:T
+enum ResourceType {
+  BOOK,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+interface Resource<T> {
+  uuid: number;
+  resourceType: ResourceType;
+  data: T;
 }
 
-const docTwo : Resource<object> = {
-uuid:1,
-resourceType:ResourceType.BOOK,
-data: {title:'name of the wind'}
-}
+const docTwo: Resource<object> = {
+  uuid: 1,
+  resourceType: ResourceType.BOOK,
+  data: { title: "name of the wind" },
+};
 
 const docThree: Resource<object> = {
   uuid: 10,
-  resourceType:ResourceType.PERSON,
-  data: {name:'yoshi'}
-
+  resourceType: ResourceType.PERSON,
+  data: { name: "yoshi" },
 };
 
-console.log(docTwo,docThree);
+console.log(docTwo, docThree);
 
+// TUPLES
+const tup: [string, number, boolean] = ["james", 34, false];
+tup[1] = 12;
+
+console.log(tup);
+
+// let student:[string,number];
+// student = ['james',345667]
+
+// student = [23445,'yoshi']
