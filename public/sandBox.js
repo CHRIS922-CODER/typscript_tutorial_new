@@ -39,19 +39,31 @@ const addUUID = (obj) => {
 };
 const docOne = addUUID({ name: "yoshi", age: 23 });
 console.log(docOne.uuid);
+// const docOne = addUUID({ name: 23, age: 46 });
+// With Interfaces
+// interface Resource {
+//   uid:number,
+//   resourceName:string,
+//   data:"???"
+// }
+// ENUMS
+// Enums are special types in typescript that allows us to store set of constants or keyworkds and associate them with numeric valuep
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const docTwo = {
+    uuid: 1,
+    resourceType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
+};
 const docThree = {
-    uid: 2,
-    resourceName: "/public/classes",
-    data: "",
+    uuid: 10,
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi' }
 };
-const docFour = {
-    uid: 2,
-    resourceName: "/public/classes",
-    data: { name: "shown" },
-};
-const docFive = {
-    uid: 2,
-    resourceName: "shopping list",
-    data: ["milk", "bread"],
-};
-console.log(docThree, docFour, docFive);
+console.log(docTwo, docThree);

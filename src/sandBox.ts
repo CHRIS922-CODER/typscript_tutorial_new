@@ -62,31 +62,29 @@ console.log(docOne.uuid);
 //   data:"???"
 // }
 
+// ENUMS
+// Enums are special types in typescript that allows us to store set of constants or keyworkds and associate them with numeric valuep
 
-interface Resource<T> {
-  uid: number;
-  resourceName: string;
-  data: T;
+
+enum ResourceType {BOOK,AUTHOR,FILM,DIRECTOR,PERSON}
+interface Resource<T>{
+  uuid:number,
+  resourceType:ResourceType,
+  data:T
 }
 
-const docThree: Resource<string>= {
-  uid: 2,
-  resourceName: "/public/classes",
-  data: "",
+const docTwo : Resource<object> = {
+uuid:1,
+resourceType:ResourceType.BOOK,
+data: {title:'name of the wind'}
+}
+
+const docThree: Resource<object> = {
+  uuid: 10,
+  resourceType:ResourceType.PERSON,
+  data: {name:'yoshi'}
+
 };
 
-const docFour: Resource<object> = {
-  uid: 2,
-  resourceName: "/public/classes",
-  data: {name:"shown"},
-};
-
-const docFive: Resource<string[]> = {
-  uid: 2,
-  resourceName: "shopping list",
-  data: ["milk","bread"],
-};
-
-console.log(docThree, docFour,docFive);
-
+console.log(docTwo,docThree);
 
